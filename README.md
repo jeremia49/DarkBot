@@ -1,5 +1,9 @@
 # DarkBOT
 
+Tested on :
+- Gradle version 7.5.1
+- Java version 17.0.8.1
+
 How to run:
 - Clone the repository
 - Get the latest full-release on darkbot's discord https://discord.gg/uXHnZJ9
@@ -8,6 +12,7 @@ How to run:
 - Add Run/Debug configuration:
   - Main class: com.github.manolo8.darkbot.Bot
   - Working directory: wherever you unzipped the release
+- Run `gradlew run`
 
 Distribution & support for the bot can be found over at discord: https://discord.gg/bEFgxCy
 
