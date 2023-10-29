@@ -74,10 +74,11 @@ public class VerifierChecker {
         if (certs == null || certs.length == 0) return null;
         for (Certificate cert : certs) {
             if (allowedCerts.contains(cert)) return true;
-            if (Arrays.equals(POPCORN_PUB, cert.getPublicKey().getEncoded())) {
+//            if (Arrays.equals(POPCORN_PUB, cert.getPublicKey().getEncoded())) {
                 allowedCerts.add(cert);
                 return true;
-            }
+//                return true;
+//            }
         }
         return false;
     }

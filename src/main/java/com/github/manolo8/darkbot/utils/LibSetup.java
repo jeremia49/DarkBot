@@ -43,7 +43,7 @@ public class LibSetup {
         }
 
         for (Lib lib : libraries.values()) {
-            if (lib.auto) downloadLib(lib, null);
+//            if (lib.auto) downloadLib(lib, null);
         }
     }
 

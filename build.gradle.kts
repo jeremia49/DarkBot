@@ -26,11 +26,11 @@ repositories {
 group = "eu.darkbot"
 version = "1.128"
 description = "DarkBot"
-java.sourceCompatibility = JavaVersion.VERSION_11
-java.targetCompatibility = JavaVersion.VERSION_11
+java.sourceCompatibility = JavaVersion.VERSION_17
+java.targetCompatibility = JavaVersion.VERSION_17
 
 application {
-    applicationName = "DarkBot"
+    applicationName = "DarkBottt"
     mainClass.set("com.github.manolo8.darkbot.Bot")
 }
 
@@ -80,34 +80,35 @@ tasks.jar {
         attributes["SplashScreen-Image"] = "icon.png"
     }
 }
-
-tasks.register<proguard.gradle.ProGuardTask>("proguard") {
-    allowaccessmodification()
-    dontoptimize()
-    dontobfuscate()
-    dontnote()
-    dontwarn()
-
-    keepattributes("Signature")
-    keep("class com.github.manolo8.** { *; }")
-    keep("class eu.darkbot.** { *; }")
-    keep("class com.formdev.** { *; }")
-
-    injars(tasks["shadowJar"].outputs.files.singleFile)
-    outjars("build/DarkBot.jar")
-
-    if (JavaVersion.current().isJava9Compatible) {
-        libraryjars("${System.getProperty("java.home")}/jmods")
-    } else {
-        libraryjars("${System.getProperty("java.home")}/lib/rt.jar")
-    }
-
-    dependsOn(tasks.build)
-}
+//
+//tasks.register<proguard.gradle.ProGuardTask>("proguard") {
+//    allowaccessmodification()
+//    dontoptimize()
+//    dontobfuscate()
+//    dontnote()
+//    dontwarn()
+//
+//    keepattributes("Signature")
+//    keep("class com.github.manolo8.** { *; }")
+//    keep("class eu.darkbot.** { *; }")
+//    keep("class com.formdev.** { *; }")
+//
+//    injars(tasks["shadowJar"].outputs.files.singleFile)
+//    outjars("build/DarkBot.jar")
+//
+//    if (JavaVersion.current().isJava9Compatible) {
+//        libraryjars("${System.getProperty("java.home")}/jmods")
+//    } else {
+//        libraryjars("${System.getProperty("java.home")}/lib/rt.jar")
+//    }
+//
+//    dependsOn(tasks.build)
+//}
 
 launch4j {
     productName = "DarkBot"
-    jarTask = project.tasks["proguard"]
+//    jarTask = project.tasks["proguard"]
+    jarTask =  project.tasks["shadowJar"]
     icon = "$projectDir/icon.ico"
 
     maxHeapSize = 512
